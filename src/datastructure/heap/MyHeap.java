@@ -81,4 +81,10 @@ public class MyHeap {
         return  maxIndex;
     }
 
+
+    // ********  for the min heap ********** //
+
+
+
+
 }

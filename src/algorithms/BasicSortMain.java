@@ -5,9 +5,9 @@ public class BasicSortMain {
     public static void main(String[] args) {
         System.out.println("Basic Sorts Algorithm");
         int[] arr = {2, 4, 3, 5, 1};
-//        bubbleSort(arr);
+        bubbleSort(arr);
 //        selectionSort(arr);
-        insertionSort(arr);
+//        insertionSort(arr);
         print(arr);
 
     }
