@@ -1,5 +1,7 @@
 package datastructure.tree;
 
+import java.util.ArrayList;
+
 public class TreeMain {
     public static void main(String[] args) {
         System.out.println("Tree DS Demo");
@@ -23,12 +25,21 @@ public class TreeMain {
         t.insert(95);
         t.insert(88);
         t.insert(98);
-//        t.insert(75);
-//        t.insert(90);
-//        t.insert(91);
-//        t.insert(99);
+        t.insert(75);
+        t.insert(90);
+        t.insert(91);
+        t.insert(99);
 
-        t.delete(88);
+//        t.delete(88);
+
+        ArrayList<Integer> tree = t.BFSTree();
+        System.out.println(tree);
+        ArrayList<Integer> tree1 = t.DFSPreOrder();
+        System.out.println("PreOrder : "+tree1);
+        ArrayList<Integer> tree2 = t.DFSPostOrder();
+        System.out.println("PostOrder : "+tree2);
+        ArrayList<Integer> tree3 = t.DFSInOrder();
+        System.out.println("InOrder : "+tree3);
 
 
     }

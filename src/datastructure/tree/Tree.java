@@ -1,5 +1,9 @@
 package datastructure.tree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Tree {
 
     Node root;
@@ -163,6 +167,78 @@ public class Tree {
         }
         return temp.value;
     }
+
+    // Tree Traversing -- visiting each node
+    // 1. Breath first tree -- > queue and arrayList
+    public ArrayList<Integer> BFSTree(){
+        Queue<Node> queue = new LinkedList<>();
+        ArrayList<Integer> result = new ArrayList<>();
+        Node current = root;
+        queue.add(root);
+        while(queue.size() > 0){
+            current = queue.remove();
+            result.add(current.value);
+            if(current.left != null) queue.add(current.left);
+            if(current.right != null) queue.add(current.right);
+        }
+        return result;
+    }
+
+    // Depth First Search -- method in method
+    // Pre order
+    public ArrayList<Integer> DFSPreOrder(){
+        ArrayList<Integer> result = new ArrayList<>();
+        class Traversal{
+            public Traversal(Node currentNode){
+                result.add(currentNode.value); // pre order
+                if(currentNode.left != null){
+                    new Traversal(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    new Traversal(currentNode.right);
+                }
+            }
+        }
+        new Traversal(root);
+        return result;
+    }
+
+    // Post order
+    public ArrayList<Integer> DFSPostOrder(){
+        ArrayList<Integer> result = new ArrayList<>();
+        class Traversal{
+            public Traversal(Node currentNode){
+                if(currentNode.left != null){
+                    new Traversal(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    new Traversal(currentNode.right);
+                }
+                result.add(currentNode.value); // post order
+            }
+        }
+        new Traversal(root);
+        return result;
+    }
+
+    // In order
+    public ArrayList<Integer> DFSInOrder(){
+        ArrayList<Integer> result = new ArrayList<>();
+        class Traversal{
+            public Traversal(Node currentNode){
+                if(currentNode.left != null){
+                    new Traversal(currentNode.left);
+                }
+                result.add(currentNode.value); // In order
+                if(currentNode.right != null){
+                    new Traversal(currentNode.right);
+                }
+            }
+        }
+        new Traversal(root);
+        return result;
+    }
+
 
 
 }
